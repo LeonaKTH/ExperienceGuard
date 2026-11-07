@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "experienceguard"
+version = "1.6.0"
+description = "Evidence-based development diagnosis with cross-session experience memory"
+requires-python = ">=3.11,<3.14"
+license = {text = "MIT (ExperienceGuard code only; upstream licenses are separate)"}
+dependencies = ["PyYAML>=6", "jsonschema>=4.23", "numpy>=1.26", "scipy>=1.12", "scikit-learn>=1.5", "filelock>=3.16", "packaging>=24"]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-cov>=6"]
+embedding = ["onnxruntime>=1.20", "tokenizers>=0.21"]
+
+[project.scripts]
+experienceguard = "experienceguard.cli:main"
+
+[tool.setuptools.package-data]
+"experienceguard.environments" = ["upstream_files.json"]
+"experienceguard.benchmarks.toolsandbox" = ["upstream_files.json"]
+"experienceguard.api" = ["*.html", "*.css", "*.js"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.data-files]
+"share/experienceguard/examples/development/source" = ["examples/development/source/*.py", "examples/development/source/pyproject.toml", "examples/development/source/.python-version"]
+"share/experienceguard/examples/development/compatible" = ["examples/development/compatible/*.py", "examples/development/compatible/pyproject.toml", "examples/development/compatible/.python-version"]
+"share/experienceguard/examples/development/conflict" = ["examples/development/conflict/*.py", "examples/development/conflict/pyproject.toml", "examples/development/conflict/.python-version"]
+"share/experienceguard/examples/development/unknown" = ["examples/development/unknown/*.py", "examples/development/unknown/pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/application", "tests/v15", "tests/publication"]
+addopts = "-ra"
+markers = ["real_llm: optional live service; disabled by default", "synthetic_training: test data only"]

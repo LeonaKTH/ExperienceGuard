@@ -1,0 +1,19 @@
+{
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-flash",
+  "advertised_version": "UNVERIFIED_CURRENT_ALIAS",
+  "pricing_reference": "REPLACE_WITH_OFFICIAL_PRICING_REFERENCE_AND_CHECK_DATE",
+  "input_usd_per_million": 0,
+  "output_usd_per_million": 0,
+  "total_cap_usd": 0.10,
+  "total_request_cap": 16,
+  "episode_cap_usd": 0.05,
+  "max_output_tokens": 1024,
+  "limits": {
+    "max_steps": 12,
+    "max_requests": 12,
+    "max_tools": 10,
+    "max_total_tokens": 100000,
+    "wall_seconds": 120
+  }
+}

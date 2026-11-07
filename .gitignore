@@ -1,0 +1,49 @@
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+*.local.json
+*.pem
+*.key
+# Runtime evidence and databases never belong in source control
+.experienceguard*/
+data/
+workspaces/
+incidents/
+validation/
+validations/
+runs/
+reports/
+evidence/
+quarantine/
+*.sqlite*
+*.db
+*.jsonl
+remote-budget.json*
+raw-response-*.json
+requests.json
+execution.json
+# Build/test output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
+coverage*.json
+coverage*.xml
+test-results*.xml
+build/
+dist/
+*.zip
+*.zip.sha256
+# Models are not distributed
+models/
+*.gguf
+*.onnx
+*.safetensors
+.DS_Store
+Thumbs.db
